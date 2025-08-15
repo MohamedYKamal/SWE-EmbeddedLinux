@@ -12,18 +12,20 @@ auto GetNumberFromUser(std::string msg)
       Number.clear();
       std::getline(std::cin, Number);
 
-
-      for(auto c:Number) if (!(isdigit(c) || c == '.'))
+      for (auto c : Number)
       {
-         Number.clear();
-         break;
+         if (!(isdigit(c) || c == '.'))
+         {
+            Number.clear();
+            break;
+         }
       }
 
-      if(!Number.empty())
+      if (!Number.empty())
       {
          break;
       }
-   }while (Number.empty());
+   } while (Number.empty());
 
    return std::stof(Number);
 }
@@ -40,32 +42,32 @@ auto GetOperationFromUser(std::string msg)
       Operation.clear();
       std::getline(std::cin, Operation);
 
-   }while ((Operation != "+" && Operation != "-" && Operation != "*" && Operation != "/"));
+   } while ((Operation != "+" && Operation != "-" && Operation != "*" && Operation != "/"));
 
    return Operation;
 }
 
 int main()
 {
-   auto FirstNumberNum = GetNumberFromUser("Please Enter the 1st number");
+   auto FirstNumberNum  = GetNumberFromUser("Please Enter the 1st number");
    auto SecondNumberNum = GetNumberFromUser("Please Enter the 2nd number");
 
    auto Operation = GetOperationFromUser("Please Enter the operation (+, -, *, /)");
-   if(Operation == "+")
+   if (Operation == "+")
    {
       std::cout << "The sum is: " << (FirstNumberNum + SecondNumberNum) << std::endl;
    }
-   else if(Operation == "-")
+   else if (Operation == "-")
    {
       std::cout << "The difference is: " << (FirstNumberNum - SecondNumberNum) << std::endl;
    }
-   else if(Operation == "*")
+   else if (Operation == "*")
    {
       std::cout << "The product is: " << (FirstNumberNum * SecondNumberNum) << std::endl;
    }
-   else if(Operation == "/")
+   else if (Operation == "/")
    {
-      while (SecondNumberNum == 0) 
+      while (SecondNumberNum == 0)
       {
          SecondNumberNum = GetNumberFromUser("Please Enter the 2nd number AGAIN");
       }

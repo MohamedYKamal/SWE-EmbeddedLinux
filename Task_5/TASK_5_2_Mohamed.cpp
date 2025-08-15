@@ -1,7 +1,5 @@
 #include <iostream>
 
-
-
 int main()
 {
    std::cout << "size of int is " << sizeof(int) << " bytes" << std::endl;

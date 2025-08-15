@@ -4,25 +4,28 @@
 constexpr int MaxAllowedAge = 150;
 constexpr int MinAllowedAge = 0;
 
-int main() 
+int main()
 {
 
    std::string UserAge;
    std::string UserName;
 
-   do 
+   do
    {
       std::cout << "Please Enter a valid Name" << std::endl;
 
       UserName.clear();
       std::getline(std::cin, UserName);
 
-      for(auto c:UserName) if (isdigit(c))
+      for (auto c : UserName)
       {
-         UserName.clear();
-         break;
+         if (isdigit(c))
+         {
+            UserName.clear();
+            break;
+         }
       }
-   }while (UserName.empty());
+   } while (UserName.empty());
 
    decltype(std::stoi("")) UserAgeNum;
 
@@ -34,18 +37,21 @@ int main()
       std::getline(std::cin, UserAge);
 
 
-      for(auto c:UserAge) if (!isdigit(c))
+      for (auto c : UserAge)
       {
-         UserAge.clear();
-         break;
+         if (!isdigit(c))
+         {
+            UserAge.clear();
+            break;
+         }
       }
 
-      if(!UserAge.empty())
+      if (!UserAge.empty())
       {
          UserAgeNum = std::stoi(UserAge);
       }
 
-   }while ((UserAgeNum >= MaxAllowedAge) || (UserAgeNum <= MinAllowedAge));
+   } while ((UserAgeNum >= MaxAllowedAge) || (UserAgeNum <= MinAllowedAge));
 
    std::cout << "Hello " << UserName << ", you're " << UserAgeNum << " years old?" << std::endl;
    return 0;

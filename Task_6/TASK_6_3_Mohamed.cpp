@@ -13,18 +13,20 @@ auto GetNumberFromUser(std::string msg)
       Number.clear();
       std::getline(std::cin, Number);
 
-
-      for(auto c:Number) if (!(isdigit(c) || c == '.'))
+      for (auto c : Number)
       {
-         Number.clear();
-         break;
+         if (!(isdigit(c) || c == '.'))
+         {
+            Number.clear();
+            break;
+         }
       }
 
-      if(!Number.empty())
+      if (!Number.empty())
       {
          break;
       }
-   }while (Number.empty());
+   } while (Number.empty());
 
    return std::stod(Number);
 }
@@ -47,7 +49,7 @@ namespace SavingsAccount
 
    auto getBalance()
    {
-      return  CurrentBalance;
+      return CurrentBalance;
    }
 }
 
@@ -64,19 +66,19 @@ namespace CheckingAccount
    {
       if (!isnan(CurrentBalance))
       {
-         CurrentBalance -=  fee;
+         CurrentBalance -= fee;
       }
    }
 
    auto getBalance()
    {
-      return  CurrentBalance;
+      return CurrentBalance;
    }
 }
 
 int main()
 {
-   auto SavingAccountVal = (GetNumberFromUser("Enter the saving account initial balance"));
+   auto SavingAccountVal   = (GetNumberFromUser("Enter the saving account initial balance"));
    auto CheckingAccountVal = (GetNumberFromUser("Enter the checking account initial balance"));
 
 
@@ -90,8 +92,7 @@ int main()
    CheckingAccountVal = CheckingAccount::getBalance();
 
 
-
-   std::cout << "Saving account now has " <<  SavingAccountVal <<  std::endl;
-   std::cout << "Checking account now has " <<  CheckingAccountVal <<  std::endl;
+   std::cout << "Saving account now has " << SavingAccountVal << std::endl;
+   std::cout << "Checking account now has " << CheckingAccountVal << std::endl;
    return 0;
 }

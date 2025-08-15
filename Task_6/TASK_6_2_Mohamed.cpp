@@ -13,24 +13,30 @@ auto GetNumberFromUser(std::string msg)
       std::getline(std::cin, Number);
 
 
-      for(auto c:Number) if (!isdigit(c))
+      for (auto c : Number)
       {
-         Number.clear();
-         break;
+         if (!isdigit(c))
+         {
+            Number.clear();
+            break;
+         }
       }
 
-      if(!Number.empty())
+      if (!Number.empty())
       {
          break;
       }
-   }while (Number.empty());
+   } while (Number.empty());
 
    return std::stoi(Number);
 }
 
 auto Factorial(int n)
 {
-   if (n <= 1) return 1;
+   if (n <= 1)
+   {
+      return 1;
+   }
 
    return n * Factorial(n - 1);
 }
@@ -40,9 +46,8 @@ int main()
 {
    auto Input = static_cast<int>(GetNumberFromUser("Inter the Integer Positive Number"));
 
-
    auto FactorialValue = Factorial(Input);
 
-   std::cout << "Factorial of " <<  Input << " is: " << FactorialValue << std::endl;
+   std::cout << "Factorial of " << Input << " is: " << FactorialValue << std::endl;
    return 0;
 }

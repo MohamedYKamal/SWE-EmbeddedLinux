@@ -1,6 +1,6 @@
+#include <iomanip>
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 auto GetNumberFromUser(std::string msg)
 {
@@ -14,17 +14,20 @@ auto GetNumberFromUser(std::string msg)
       std::getline(std::cin, Number);
 
 
-      for(auto c:Number) if (!(isdigit(c) || c == '.'))
+      for (auto c : Number)
       {
-         Number.clear();
-         break;
+         if (!(isdigit(c) || c == '.'))
+         {
+            Number.clear();
+            break;
+         }
       }
 
-      if(!Number.empty())
+      if (!Number.empty())
       {
          break;
       }
-   }while (Number.empty());
+   } while (Number.empty());
 
    return std::stof(Number);
 }
@@ -33,10 +36,10 @@ int main()
 {
    auto NumberOfInputs = static_cast<int>(GetNumberFromUser("Please Enter the Number of inputs"));
    decltype(GetNumberFromUser(std::string())) MaxInputVal = 0;
-   for(auto i = 0; i < NumberOfInputs; ++i)
+   for (auto i = 0; i < NumberOfInputs; ++i)
    {
       std::string TempMsg;
-      switch (i+1) 
+      switch (i + 1)
       {
       case 1:
          TempMsg = "1st";
@@ -48,13 +51,13 @@ int main()
          TempMsg = "3rd";
          break;
       default:
-         TempMsg = std::to_string(i+1) + "th";
+         TempMsg = std::to_string(i + 1) + "th";
          break;
       }
 
       auto TempNumber = GetNumberFromUser("Please Enter the " + TempMsg + " number");
 
-      if(MaxInputVal < TempNumber)
+      if (MaxInputVal < TempNumber)
       {
          MaxInputVal = TempNumber;
       }

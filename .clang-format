@@ -1,0 +1,20 @@
+﻿---
+# Settings can be viewed and modified by uploading this file to: https://zed0.co.uk/clang-format-configurator/
+BasedOnStyle: Microsoft
+AlignAfterOpenBracket: Align
+AlignConsecutiveMacros: 'true'
+AlignConsecutiveAssignments: 'true'
+AlignConsecutiveDeclarations: 'true'
+AlignEscapedNewlines: Left
+AlignTrailingComments: 'true'
+AllowAllArgumentsOnNextLine: 'false'
+AllowAllParametersOfDeclarationOnNextLine: 'false'
+AllowShortBlocksOnASingleLine: 'false'
+AllowShortCaseLabelsOnASingleLine: 'false'
+AllowShortFunctionsOnASingleLine: None
+BinPackArguments: 'false'
+BinPackParameters: 'false'
+IndentWidth: '3'
+MaxEmptyLinesToKeep: '2'
+ReflowComments: 'false'
+UseTab: Never
