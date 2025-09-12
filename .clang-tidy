@@ -1,0 +1,19 @@
+Checks: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  readability-*,
+  modernize-*,
+  cppcoreguidelines-*,
+  misc-*,
+  portability-*,
+  google-*,
+  hicpp-*
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatStyle:     none
+CheckOptions:
+  # Example: enable modernize-use-nullptr
+  - key:             modernize-use-nullptr.NullMacros
+    value:           'NULL'
